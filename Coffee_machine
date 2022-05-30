@@ -1,0 +1,419 @@
+
+
+#   cooffe mashina loyihasi
+#   Espresso, kapuchino, amerikano
+#   bitta qahva tayyorlash uchun 30 g qahva ketadi 
+
+
+
+
+cofe_machine = {
+    'Qahva' : {
+        'amerikano' : 300,
+        'kapuchino' : 400,
+        'espresso' : 200
+        },
+    
+    "Bazadagi_pullar" : {
+        "ming" : 7,
+        "ikki_ming" : 5,
+        "besh_ming" : 4,
+        "on_ming" : 2,
+        "yigirma_ming" : 2,
+        "ellik_ming" : 1,
+        "yuz_ming" : 1
+        }
+    
+    }
+
+
+print()
+print("Assalomu alekum hurmatli mijoz. Qaysi qahvani tanlaysiz?")
+print("1) Amerikano  -  15 000 so'm"
+      "\n2) Kapuchino  -  12 000 so'm"
+      "\n3) Espresso   -  10 000 so'm")
+
+n = int(input("Qahva raqamini tanlang - "))               # Qahva tanlash  ( 39 - 57 )
+    
+x = True
+
+while True:
+    if n == 1:
+        print("Siz Amerikano qahvasini tanladingiz")
+        n = 15000
+        break
+    elif n == 2:
+        print("Siz Kapuchino qahvasini tanladingiz")
+        n = 12000
+        break
+    elif n == 3:
+        print("Siz Espresso qahvasini tanladingiz")
+        n = 10000
+        break
+    else:
+        n = int(input("Xatolik yuz berdi. Qaytadan qahva raqamini tanlang - "))
+
+kiritilayotgan_pullar = []
+qaytim = []
+
+while True:                                             
+    pul = int(input("Iltimos pulni kiriting - "))
+    
+    if pul != 1000 and pul != 2000 and pul != 5000 and pul != 10000 and pul != 20000 and pul != 50000 and pul != 100000:
+        print("Bu pul qabul qilinmadi!")
+        continue
+    
+    kiritilayotgan_pullar.append(pul)
+    
+    summa = sum(kiritilayotgan_pullar)
+    
+    
+    
+    
+    if summa < n:
+        print("Kiritilgan pul -",sum(kiritilayotgan_pullar))
+        continue
+    
+    
+    
+    
+    if summa > n:
+        while True:
+            if cofe_machine['Bazadagi_pullar']['yuz_ming'] > 0  and  summa - 100000 >= n:
+                qaytim.append(100000)
+                summa -= 100000
+                cofe_machine['Bazadagi_pullar']['yuz_ming'] -= 1
+            else:
+                break
+        
+        while True:
+            if cofe_machine['Bazadagi_pullar']['ellik_ming'] > 0  and  summa - 50000 >= n:
+                qaytim.append(50000)
+                summa -= 50000
+                cofe_machine['Bazadagi_pullar']['ellik_ming'] -= 1
+            else:
+                break
+        
+        while True:
+            if cofe_machine['Bazadagi_pullar']['yigirma_ming'] > 0  and  summa - 20000 >= n:
+                qaytim.append(20000)
+                summa -= 20000
+                cofe_machine['Bazadagi_pullar']['yigirma_ming'] -= 1
+            else:
+                break
+        
+        while True:
+            if cofe_machine['Bazadagi_pullar']['on_ming'] > 0  and  summa - 10000 >= n:
+                qaytim.append(10000)
+                summa -= 10000
+                cofe_machine['Bazadagi_pullar']['on_ming'] -= 1
+            else:
+                break
+        
+        while True:
+            if cofe_machine['Bazadagi_pullar']['besh_ming'] > 0  and  summa - 5000 >= n:
+                qaytim.append(5000)
+                summa -= 5000
+                cofe_machine['Bazadagi_pullar']['besh_ming'] -= 1
+            else:
+                break
+        
+        while True:
+            if cofe_machine['Bazadagi_pullar']['ikki_ming'] > 0  and  summa - 2000 >= n:
+                qaytim.append(2000)
+                summa -= 2000
+                cofe_machine['Bazadagi_pullar']['ikki_ming'] -= 1
+            else:
+                break
+        
+        while True:
+            if cofe_machine['Bazadagi_pullar']['ming'] > 0  and  summa - 1000 >= n:
+                qaytim.append(1000)
+                summa -= 1000
+                cofe_machine['Bazadagi_pullar']['ming'] -= 1
+            else:
+                break
+        
+        
+        if summa != n:
+            m = n
+            print("Hurmatli mijoz bizda sizga qaytarishga",summa - m,"so'mlik pul topilmadi. "
+                          "Hohlasangiz",summa,"so'mga qahva ichishingiz yoki pulingizni qaytarib olishingiz mumkin."
+                          "\n1) Qahva ichish"
+                          "\n2) Pulni qaytarish")
+            n = int(input("==> "))
+            while True:
+                a = True
+                if n == 1:
+                    summa = m
+                    n = m
+                    break
+                elif n == 2:
+                    for i in qaytim:
+                        if i == 1000:
+                            cofe_machine['Bazadagi_pullar']['ming'] += 1
+                        elif i == 2000:
+                            cofe_machine['Bazadagi_pullar']['ikki_ming'] += 1
+                        elif i == 5000:
+                            cofe_machine['Bazadagi_pullar']['besh_ming'] += 1
+                        elif i == 10000:
+                            cofe_machine['Bazadagi_pullar']['on_ming'] += 1
+                        elif i == 20000:
+                            cofe_machine['Bazadagi_pullar']['yigirma_ming'] += 1
+                        elif i == 50000:
+                            cofe_machine['Bazadagi_pullar']['ellik_ming'] += 1
+                        elif i == 100000:
+                            cofe_machine['Bazadagi_pullar']['yuz_ming'] += 1
+                            
+                    print("Iltimos pulingizni oling.")
+                    for i in kiritilayotgan_pullar:
+                        print(i)
+                    print("Ishlaringizga omad!!!")
+                    a = False
+                    break
+                else:
+                    n = int(input("Xatolik yuz berdi. Qaytadan urinib ko'ring"
+                                  "\n1) Qahva ichish"
+                                  "\n2) Pulni qaytarish"
+                                  "\n==> "))
+            if a == False:
+                break
+                        
+    
+    
+    
+    
+    if summa == n:
+        print("Kiritilgan pul -",sum(kiritilayotgan_pullar))
+        print("Qahvangiz bir daqiqada tayyor bo'ladi\n ...\n ...\n ...")
+    
+        if n == 15000 and cofe_machine['Qahva']['amerikano'] >= 30:
+            cofe_machine['Qahva']['amerikano'] -= 30
+            x = True
+            y = True
+            if sum(kiritilayotgan_pullar) > n:
+                print("Hurmatli mijoz qaytimini oling\n...\n...\n...")
+                for i in qaytim:
+                    print(i)
+            print ("Marhamat qahvangiz tayyor")
+            
+            for i in kiritilayotgan_pullar:
+                if i == 1000:
+                    cofe_machine['Bazadagi_pullar']['ming'] += 1
+                elif i == 2000:
+                    cofe_machine['Bazadagi_pullar']['ikki_ming'] += 1
+                elif i == 5000:
+                    cofe_machine['Bazadagi_pullar']['besh_ming'] += 1
+                elif i == 10000:
+                    cofe_machine['Bazadagi_pullar']['on_ming'] += 1
+                elif i == 20000:
+                    cofe_machine['Bazadagi_pullar']['yigirma_ming'] += 1
+                elif i == 50000:
+                    cofe_machine['Bazadagi_pullar']['ellik_ming'] += 1
+                elif i == 100000:
+                    cofe_machine['Bazadagi_pullar']['yuz_ming'] += 1
+            
+        elif n == 15000 and cofe_machine['Qahva']['amerikano'] < 30:
+            while True:
+                n = int(input("Kechirasiz hurmatli mijoz bizda amerikano qolmabdi. "
+                      "Hohlasangiz boshqa qahvani tanlashingiz yoki "
+                      "pulingizni qaytarib olishingiz mumkin."
+                      "\n1) Qahva tanlash"
+                      "\n2) Pulni qaytarish"
+                      "\n==> "))
+                
+                if n == 1:
+                    print("Kechirasiz hurmatli mijoz pulingizni qaytarib olib qaytadan kiriting.")
+                    for i in kiritilayotgan_pullar:
+                        print(i)
+                    y = False
+                    break
+                
+                elif n == 2:
+                    print("Iltimos pulingizni oling.")
+                    for i in kiritilayotgan_pullar:
+                        print(i)
+                    x = False
+                    print("Ishlaringizga omad!!!")
+                    break
+                
+                else:
+                    n = int(input("Xatolik yuz berdi. Qaytadan urinib ko'ring"
+                                  "\n1) Qahva tanlash"
+                                  "\n2) Pulni qaytarish"
+                                  "\n==> "))
+        
+        if n == 12000 and cofe_machine['Qahva']['kapuchino'] >= 30:
+            cofe_machine['Qahva']['kapuchino'] -= 30
+            x = True
+            y = True
+            if sum(kiritilayotgan_pullar) > n:
+                print("Hurmatli mijoz qaytimini oling\n...\n...\n...")
+                for i in qaytim:
+                    print(i)
+            print ("Marhamat qahvangiz tayyor")
+            
+            for i in kiritilayotgan_pullar:
+                if i == 1000:
+                    cofe_machine['Bazadagi_pullar']['ming'] += 1
+                elif i == 2000:
+                    cofe_machine['Bazadagi_pullar']['ikki_ming'] += 1
+                elif i == 5000:
+                    cofe_machine['Bazadagi_pullar']['besh_ming'] += 1
+                elif i == 10000:
+                    cofe_machine['Bazadagi_pullar']['on_ming'] += 1
+                elif i == 20000:
+                    cofe_machine['Bazadagi_pullar']['yigirma_ming'] += 1
+                elif i == 50000:
+                    cofe_machine['Bazadagi_pullar']['ellik_ming'] += 1
+                elif i == 100000:
+                    cofe_machine['Bazadagi_pullar']['yuz_ming'] += 1
+            
+        elif n == 12000 and cofe_machine['Qahva']['kapuchino'] < 30:
+            while True:
+                n = int(input("Kechirasiz hurmatli mijoz bizda kapuchino qolmabdi. "
+                      "Hohlasangiz boshqa qahvani tanlashingiz yoki "
+                      "pulingizni qaytarib olishingiz mumkin."
+                      "\n1) Qahva tanlash"
+                      "\n2) Pulni qaytarish"
+                      "\n==> "))
+                
+                if n == 1:
+                    print("Kechirasiz hurmatli mijoz pulingizni qaytarib olib qaytadan kiriting.")
+                    for i in kiritilayotgan_pullar:
+                        print(i)
+                    y = False
+                    break
+                   
+                elif n == 2:
+                    print("Iltimos pulingizni oling.")
+                    for i in kiritilayotgan_pullar:
+                        print(i)
+                    x = False
+                    print("Ishlaringizga omad!!!")
+                    break
+                
+                else:
+                    n = int(input("Xatolik yuz berdi. Qaytadan urinib ko'ring"
+                                  "\n1) Qahva tanlash"
+                                  "\n2) Pulni qaytarish"
+                                  "\n==> "))
+            
+        if n == 10000 and cofe_machine['Qahva']['espresso'] >= 30:
+            cofe_machine['Qahva']['espresso'] -= 30
+            x = True
+            y = True
+            
+            if sum(kiritilayotgan_pullar) > n:
+                print("Hurmatli mijoz qaytimini oling\n...\n...\n...")
+                for i in qaytim:
+                    print(i)
+            print ("Marhamat qahvangiz tayyor")
+            
+            for i in kiritilayotgan_pullar:
+                if i == 1000:
+                    cofe_machine['Bazadagi_pullar']['ming'] += 1
+                elif i == 2000:
+                    cofe_machine['Bazadagi_pullar']['ikki_ming'] += 1
+                elif i == 5000:
+                    cofe_machine['Bazadagi_pullar']['besh_ming'] += 1
+                elif i == 10000:
+                    cofe_machine['Bazadagi_pullar']['on_ming'] += 1
+                elif i == 20000:
+                    cofe_machine['Bazadagi_pullar']['yigirma_ming'] += 1
+                elif i == 50000:
+                    cofe_machine['Bazadagi_pullar']['ellik_ming'] += 1
+                elif i == 100000:
+                    cofe_machine['Bazadagi_pullar']['yuz_ming'] += 1
+            
+        elif n == 10000 and cofe_machine['Qahva']['espresso'] < 30:
+            while True:
+                n = int(input("Kechirasiz hurmatli mijoz bizda espresso qolmabdi. "
+                      "Hohlasangiz boshqa qahvani tanlashingiz yoki "
+                      "pulingizni qaytarib olishingiz mumkin."
+                      "\n1) Qahva tanlash"
+                      "\n2) Pulni qaytarish"
+                      "\n==> "))
+                
+                if n == 1:
+                    print("Kechirasiz hurmatli mijoz pulingizni qaytarib olib qaytadan kiriting.")
+                    for i in kiritilayotgan_pullar:
+                        print(i)
+                    y = False
+                    break
+                
+                elif n == 2:
+                    print("Iltimos pulingizni oling.")
+                    for i in kiritilayotgan_pullar:
+                        print(i)
+                    x = False
+                    print("Ishlaringizga omad!!!")
+                    break
+                
+                else:
+                    n = int(input("Xatolik yuz berdi. Qaytadan urinib ko'ring"
+                                  "\n1) Qahva tanlash"
+                                  "\n2) Pulni qaytarish"
+                                  "\n==> "))
+            
+        if x == False:
+            break
+        
+        if x == True and y == True:
+            n = int(input("Yana qahva ichishni hohlaysizmi?"
+                          "\n1) Ha"
+                          "\n2) Yo'q"
+                          "\n==> "))
+        
+        while True:
+            if n == 1:
+                print()
+                print("Qaysi qahvani tanlaysiz?")
+                print("1) Amerikano  -  15 000 so'm"
+                      "\n2) Kapuchino  -  12 000 so'm"
+                      "\n3) Espresso   -  10 000 so'm")
+
+                n = int(input("Qahva raqamini tanlang - "))
+                
+                while True:
+                    if n == 1:
+                        print("Siz Amerikano qahvasini tanladingiz")
+                        n = 15000
+                        x = False
+                        break
+                    elif n == 2:
+                        print("Siz Kapuchino qahvasini tanladingiz")
+                        n = 12000
+                        x = False
+                        break
+                    elif n == 3:
+                        print("Siz Espresso qahvasini tanladingiz")
+                        n = 10000
+                        x = False
+                        break
+                    else:
+                        n = int(input("Xatolik yuz berdi. Qaytadan qahva raqamini tanlang - "))
+                
+                kiritilayotgan_pullar = []
+                qaytim = []
+                
+                if x == False:
+                    x = True
+                    break
+                
+            elif n == 2:
+                print("Ishlaringizga omad!!!")
+                x = False
+                break
+            
+            else:
+                n = int(input("Xatolik yuz berdi. Qaytadan urinib ko'ring. "
+                              "Yana qahva ichishni hohlaysizmi?"
+                              "\n1) Ha"
+                              "\n2) Yo'q"
+                              "\n==> "))
+        if x == False:
+            break
+
+    
+    
