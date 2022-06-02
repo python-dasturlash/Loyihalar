@@ -1,0 +1,320 @@
+
+# Restoranda buyurtma qabul qilish.
+
+def Ovqatlar():
+    massiv = []
+    
+    while True:
+        print("\nOvqatlar"
+              "\n1) Tandir kabob | 150 000 so'm"
+              "\n2) Qozon kabob  | 120 000 so'm"
+              "\n3) Baliq        | 100 000 so'm"
+              "\n4) Tabaka       |  50 000 so'm"
+              "\n5) Sho'rva      |  30 000 so'm"
+              "\n6) Shashlik     |  15 000 so'm")
+        
+        n = input("==> ")
+        
+        if n == '1':
+            n = float(input("Necha kg Tandir kabob:  "))
+            massiv.append(f"Tandir kabob {n} kg ")
+            massiv.append(n*150000)
+            return massiv
+        
+        elif n == '2':
+            n = float(input("Necha kg Qozon kabob:  "))
+            massiv.append(f"Qozon kabob {n} kg ")
+            massiv.append(n*120000)
+            return massiv
+        
+        elif n == '3':
+            n = float(input("Necha kg Baliq:  "))
+            massiv.append(f"Baliq {n} kg ")
+            massiv.append(n*100000)
+            return massiv
+        
+        elif n == '4':
+            n = float(input("Necha kg Tabaka:  "))
+            massiv.append(f"Tabaka {n} kg ")
+            massiv.append(n*50000)
+            return massiv
+        
+        elif n == '5':
+            n = float(input("Nechta sho'rva:  "))
+            massiv.append(f"Sho'rva {n} ta ")
+            massiv.append(n*30000)
+            return massiv
+        
+        elif n == '6':
+            n = float(input("Nechta shashlik:  "))
+            massiv.append(f"Shashlik {n} ta ")
+            massiv.append(n*15000)
+            return massiv
+        
+        else:
+            print("Xatolik yuz berdi. Qaytadan urinib ko'ring.")
+            continue
+
+
+
+def Salatlar():
+    massiv = []
+    
+    while True:
+        print("\nSalatlar"
+              "\n1) Mujskoy kapriz | 25 000 so'm"
+              "\n2) Jenskiy kapriz | 25 000 so'm"
+              "\n3) Sezar          | 20 000 so'm"
+              "\n4) Olivye         | 15 000 so'm"
+              "\n5) Svejiy         | 15 000 so'm")
+        
+        n = input("==> ")
+        
+        if n == '1':
+            n = float(input("Nechta Mujskoy kapriz:  "))
+            massiv.append(f"Mujskoy kapriz {n} ta ")
+            massiv.append(n*25000)
+            return massiv
+        
+        elif n == '2':
+            n = float(input("Nechta Jenskiy kapriz:  "))
+            massiv.append(f"Jenskiy kapriz {n} ta ")
+            massiv.append(n*25000)
+            return massiv
+        
+        elif n == '3':
+            n = float(input("Nechta Sezar:  "))
+            massiv.append(f"Sezar {n} ta ")
+            massiv.append(n*20000)
+            return massiv
+        
+        elif n == '4':
+            n = float(input("Nechta Olivye:  "))
+            massiv.append(f"Olivye {n} ta ")
+            massiv.append(n*15000)
+            return massiv
+        
+        elif n == '5':
+            n = float(input("Nechta Svejiy:  "))
+            massiv.append(f"Svejiy {n} ta ")
+            massiv.append(n*15000)
+            return massiv
+        
+        else:
+            print("Xatolik yuz berdi. Qaytadan urinib ko'ring.")
+            continue
+      
+        
+      
+def Ichimliklar():
+    massiv = []
+    
+    while True:
+        print("\nIchimliklar"
+              "\n1) Pepsi 1.5 litr | 12 000 so'm"
+              "\n2) Pepsi 1 litr   | 10 000 so'm"
+              "\n3) Cola 1.5 litr  | 12 000 so'm"
+              "\n4) Cola 1 litr    | 10 000 so'm"
+              "\n5) Fanta 1.5 litr | 11 000 so'm"
+              "\n6) Fanta 1 litr   |  8 000 so'm"
+              "\n7) Dena 1 litr    | 12 000 so'm"
+              "\n8) Limon choy     |  5 000 so'm"
+              "\n9) Qora choy      |  3 000 so'm"
+              "\n10) Ko'k choy     |  3 000 so'm")
+        
+        n = input("==> ")
+        
+        if n == '1':
+            n = float(input("Pepsi 1.5 litr nechta:  "))
+            massiv.append(f"Pepsi 1.5 litr {n} ta ")
+            massiv.append(n*12000)
+            return massiv
+        
+        elif n == '2':
+            n = float(input("Pepsi 1 litr nechta:  "))
+            massiv.append(f"Pepsi 1 litr {n} ta ")
+            massiv.append(n*10000)
+            return massiv
+        
+        elif n == '3':
+            n = float(input("Cola 1.5 litr nechta:  "))
+            massiv.append(f"Cola 1.5 litr {n} ta ")
+            massiv.append(n*12000)
+            return massiv
+        
+        elif n == '4':
+            n = float(input("Cola 1 litr nechta:  "))
+            massiv.append(f"Cola 1 litr {n} ta ")
+            massiv.append(n*10000)
+            return massiv
+        
+        elif n == '5':
+            n = float(input("Fanta 1.5 litr nechta:  "))
+            massiv.append(f"Fanta 1.5 litr {n} ta ")
+            massiv.append(n*11000)
+            return massiv
+        
+        elif n == '6':
+            n = float(input("Fanta 1 litr nechta:  "))
+            massiv.append(f"Fanta 1 litr {n} ta ")
+            massiv.append(n*8000)
+            return 
+        
+        elif n == '7':
+            n = float(input("Dena 1 litr nechta:  "))
+            massiv.append(f"Dena 1 litr {n} ta ")
+            massiv.append(n*12000)
+            return massiv
+        
+        elif n == '8':
+            n = float(input("Limon choy nechta:  "))
+            massiv.append(f"Limon choy {n} ta ")
+            massiv.append(n*5000)
+            return massiv
+        
+        elif n == '9':
+            n = float(input("Qora choy nechta:  "))
+            massiv.append(f"Qora choy {n} ta ")
+            massiv.append(n*3000)
+            return massiv
+        
+        elif n == '10':
+            n = float(input("Ko'k choy nechta:  "))
+            massiv.append(f"Ko'k choy {n} ta ")
+            massiv.append(n*3000)
+            return massiv
+        
+        else:
+            print("Xatolik yuz berdi. Qaytadan urinib ko'ring.")
+            continue
+      
+print("\nAssalomu alaykum restoranimizga hush kelibsiz")
+
+Massiv = []
+
+while True:
+    print("\nMenyu"
+          "\n1) Ovqatlar"
+          "\n2) Salatlar"
+          "\n3) Ichimliklar"
+          "\n4) Non")
+    
+    
+    n = input('==> ')
+
+    if n == '1':
+        Massiv.append(Ovqatlar())
+        n = input("Yana buyurtma qilasizmi"
+                  "\n1) Ha"
+                  "\n2) Yo'q"
+                  "\n==> ")
+        
+        if n == '1' or n == "Ha" or n == 'ha' or n == 'HA':
+            continue
+        else:
+            break
+        
+        
+    elif n == '2':
+        Massiv.append(Salatlar())
+        n = input("Yana buyurtma qilasizmi"
+                  "\n1) Ha"
+                  "\n2) Yo'q"
+                  "\n==> ")
+        
+        if n == '1' or n == "Ha" or n == 'ha' or n == 'HA':
+            continue
+        else:
+            break
+        
+    
+    elif n == '3':
+        Massiv.append(Ichimliklar())
+        n = input("Yana buyurtma qilasizmi"
+                  "\n1) Ha"
+                  "\n2) Yo'q"
+                  "\n==> ")
+        
+        if n == '1' or n == "Ha" or n == 'ha' or n == 'HA':
+            continue
+        else:
+            break
+    
+    
+    elif n == '4':
+        n = float(input("Nechta non:  "))
+        massiv = []
+        massiv.append(f'Non {n} ta')
+        massiv.append(n*5000)
+        Massiv.append(massiv)
+        n = input("Yana buyurtma qilasizmi"
+                  "\n1) Ha"
+                  "\n2) Yo'q"
+                  "\n==> ")
+        
+        if n == '1' or n == "Ha" or n == 'ha' or n == 'HA':
+            continue
+        else:
+            break
+
+print()
+s = 0    
+for i in range(len(Massiv)):
+    for j in Massiv[i]:
+        print(j,end='   ')
+    s += j
+    print()
+print("\nJami =",s,"so'm")
+
+
+
+
+
+
+
+"""
+menyu = {
+    'Ovqat' : {
+                "Tandir kabob" : 150000,
+                "Qozon kabob"  : 120000,
+                "Baliq"        : 100000,
+                "Tabaka"       :  50000,
+                "Sho'rva"      :  30000,
+                "Shashlik"     :  15000
+                },
+    
+    'Salat' : {
+                "Mujskoy kapriz" : 25000,
+                "Damskiy kapriz" : 25000,
+                "Sezar"          : 20000,
+                "Olivye"         : 15000,
+                "Svejiy"         : 15000
+                },
+    
+    "Ichimlik" : {
+                'Pepsi' : {
+                            "1.5 litr" : 12000,
+                            "1 litr"   : 10000
+                            },
+                "Cola" : {
+                            "1.5 litr" : 12000,
+                            "1 litr"   : 10000
+                            },
+                "Fanta" : {
+                            "1.5 litr" : 11000,
+                            "1 litr"   : 8000
+                            },
+                
+                "Dena" : {  "1 litr" : 12000  },
+                
+                "Choy" : {
+                            "Limon choy" : 5000,
+                            "Ko'k choy"  : 3000,
+                            "Qora choy"  : 3000
+                            },
+    "Non" : 5000
+    
+                }
+    }
+"""
+
