@@ -1,0 +1,145 @@
+
+matn = input("Matnni kiriting (Lotincha): \n\n")
+
+matn = matn.split()
+
+matn_yasa = []
+
+
+def Harfni_tahrirlash(harf):    # Harflarni katta kichikligini aniqlash
+    if harf.upper() == harf:
+        return True
+    if harf.lower() == harf:
+        return False
+
+
+
+def harfni_kirilga_ogirish(harf):   # Harfni lotindan kirilga o'tkazish
+    if ord(harf) == 97:         # a
+        harf = chr(1072)
+    elif ord(harf) == 98:       # b
+        harf = chr(1073)
+    elif ord(harf) == 99:       # c
+        harf = chr(99)
+    elif ord(harf) == 100:      # d
+        harf = chr(1076)
+    elif ord(harf) == 101:      # e
+        harf = chr(1077)
+    elif ord(harf) == 102:      # f
+        harf = chr(1092)
+    elif ord(harf) == 103:      # g
+        harf = chr(1075)
+    elif ord(harf) == 104:      # h
+        harf = chr(1203)
+    elif ord(harf) == 105:      # i
+        harf = chr(1080)
+    elif ord(harf) == 106:      # j
+        harf = chr(1078)
+    elif ord(harf) == 107:      # k
+        harf = chr(1082)
+    elif ord(harf) == 108:      # l
+        harf = chr(1083)
+    elif ord(harf) == 109:      # m
+        harf = chr(1084)
+    elif ord(harf) == 110:      # n
+        harf = chr(1085)
+    elif ord(harf) == 111:      # o
+        harf = chr(1086)
+    elif ord(harf) == 112:      # p
+        harf = chr(1087)
+    elif ord(harf) == 113:      # q
+        harf = chr(1179)
+    elif ord(harf) == 114:      # r
+        harf = chr(1088)
+    elif ord(harf) == 115:      # s
+        harf = chr(1089)
+    elif ord(harf) == 116:      # t
+        harf = chr(1090)
+    elif ord(harf) == 117:      # u
+        harf = chr(1091)
+    elif ord(harf) == 118:      # v
+        harf = chr(1074)
+    elif ord(harf) == 119:      # w
+        harf = chr(119)
+    elif ord(harf) == 120:      # x
+        harf = chr(1093)
+    elif ord(harf) == 121:      # y
+        harf = chr(1081)
+    elif ord(harf) == 122:      # z
+        harf = chr(1079)
+    elif ord(harf) == 39:       # '
+        harf = chr(1098)
+    return harf
+
+
+
+for soz in matn:
+    soz_yasa = ''
+    i = 0
+    while i < len(soz):
+        harf = soz[i]
+        
+        x = Harfni_tahrirlash(harf)
+        
+        harf = harf.lower()
+        
+        if i < len(soz)-1:
+            y = False
+            
+            if ord(harf) == 111 and ord(soz[i+1]) == 39:     # o' -> ў
+                harf = chr(1118)
+                y = True
+            
+            elif ord(harf) == 103 and ord(soz[i+1]) == 39:      # g' -> ғ
+                harf = chr(1171)
+                y = True
+            
+            elif ord(harf) == 121 and ord(soz[i+1]) == 111:     # yo -> ё
+                harf = chr(1105)
+                y = True
+            
+            elif ord(harf) == 121 and ord(soz[i+1]) == 117:      # yu -> ю
+                harf = chr(1102)
+                y = True
+            
+            elif ord(harf) == 121 and ord(soz[i+1]) == 97:       # ya -> я
+                harf = chr(1103)
+                y = True
+            
+            elif ord(harf) == 116 and ord(soz[i+1]) == 115:      # ts -> ц
+                harf = chr(1094)
+                y = True
+            
+            elif ord(harf) == 99 and ord(soz[i+1]) == 104:      # ch -> ч
+                harf = chr(1095)
+                y = True
+            
+            elif ord(harf) == 115 and ord(soz[i+1]) == 104:    # sh -> ш
+                harf = chr(1096)
+                y = True
+            
+            if y == True:
+                if x == True:
+                    soz_yasa += harf.upper()
+                else:
+                    soz_yasa += harf
+                
+                i += 2
+                continue
+
+        
+        harf = harfni_kirilga_ogirish(harf)
+
+        if x == True:
+            soz_yasa += harf.upper()
+        else:
+            soz_yasa += harf
+        
+        i += 1
+            
+    matn_yasa.append(soz_yasa)
+
+matn_yasa = ' '.join(matn_yasa)
+
+print("\n\nKiritgan matningiz (Кирилча): \n\n"+matn_yasa)
+
