@@ -6,6 +6,7 @@ matn = matn.split()
 matn_yasa = []
 
 
+
 def Harfni_tahrirlash(harf):    # Harflarni katta kichikligini aniqlash
     if harf.upper() == harf:
         return True
@@ -14,7 +15,7 @@ def Harfni_tahrirlash(harf):    # Harflarni katta kichikligini aniqlash
 
 
 
-def harfni_kirilga_ogirish(harf):   # Harfni lotindan kirilga o'tkazish
+def Harfni_kirilga_ogirish(harf):   # Harfni lotindan kirilga o'tkazish
     if ord(harf) == 97:         # a
         harf = chr(1072)
     elif ord(harf) == 98:       # b
@@ -73,62 +74,58 @@ def harfni_kirilga_ogirish(harf):   # Harfni lotindan kirilga o'tkazish
 
 
 
+def Bazi_bir_harflar(harf):
+    if ord(harf) == 111 and ord(soz[i+1]) == 39:     # o' -> ў
+        harf = chr(1118)
+     
+    elif ord(harf) == 103 and ord(soz[i+1]) == 39:      # g' -> ғ
+        harf = chr(1171)
+     
+    elif ord(harf) == 121 and ord(soz[i+1]) == 111:     # yo -> ё
+        harf = chr(1105)
+        
+    elif ord(harf) == 121 and ord(soz[i+1]) == 117:      # yu -> ю
+        harf = chr(1102)
+        
+    elif ord(harf) == 121 and ord(soz[i+1]) == 97:       # ya -> я
+        harf = chr(1103)
+        
+    elif ord(harf) == 116 and ord(soz[i+1]) == 115:      # ts -> ц
+        harf = chr(1094)
+        
+    elif ord(harf) == 99 and ord(soz[i+1]) == 104:      # ch -> ч
+        harf = chr(1095)
+        
+    elif ord(harf) == 115 and ord(soz[i+1]) == 104:    # sh -> ш
+        harf = chr(1096)
+    
+    return harf
+    
+    
+
 for soz in matn:
     soz_yasa = ''
     i = 0
     while i < len(soz):
         harf = soz[i]
         
-        x = Harfni_tahrirlash(harf)
+        x = Harfni_tahrirlash(harf)         # Funksiya
         
         harf = harf.lower()
         
         if i < len(soz)-1:
-            y = False
-            
-            if ord(harf) == 111 and ord(soz[i+1]) == 39:     # o' -> ў
-                harf = chr(1118)
-                y = True
-            
-            elif ord(harf) == 103 and ord(soz[i+1]) == 39:      # g' -> ғ
-                harf = chr(1171)
-                y = True
-            
-            elif ord(harf) == 121 and ord(soz[i+1]) == 111:     # yo -> ё
-                harf = chr(1105)
-                y = True
-            
-            elif ord(harf) == 121 and ord(soz[i+1]) == 117:      # yu -> ю
-                harf = chr(1102)
-                y = True
-            
-            elif ord(harf) == 121 and ord(soz[i+1]) == 97:       # ya -> я
-                harf = chr(1103)
-                y = True
-            
-            elif ord(harf) == 116 and ord(soz[i+1]) == 115:      # ts -> ц
-                harf = chr(1094)
-                y = True
-            
-            elif ord(harf) == 99 and ord(soz[i+1]) == 104:      # ch -> ч
-                harf = chr(1095)
-                y = True
-            
-            elif ord(harf) == 115 and ord(soz[i+1]) == 104:    # sh -> ш
-                harf = chr(1096)
-                y = True
-            
-            if y == True:
+            harf = Bazi_bir_harflar(harf)   # Funksiya
+
+            if ord(harf) > 1000:
                 if x == True:
                     soz_yasa += harf.upper()
                 else:
                     soz_yasa += harf
-                
                 i += 2
                 continue
 
         
-        harf = harfni_kirilga_ogirish(harf)
+        harf = Harfni_kirilga_ogirish(harf) # Funksiya
 
         if x == True:
             soz_yasa += harf.upper()
